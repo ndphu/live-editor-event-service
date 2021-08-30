@@ -1,0 +1,30 @@
+plugins {
+  id 'org.springframework.boot' version '2.5.4'
+  id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+  id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-amqp'
+  implementation 'org.springframework.boot:spring-boot-starter-web'
+  implementation 'com.google.code.gson:gson:2.8.6'
+  implementation 'org.springframework.boot:spring-boot-starter-security'
+  implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+  runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.2',
+      'io.jsonwebtoken:jjwt-jackson:0.11.2'
+
+  testImplementation 'org.springframework.boot:spring-boot-starter-test'
+  testImplementation 'org.springframework.amqp:spring-rabbit-test'
+}
+
+test {
+  useJUnitPlatform()
+}
